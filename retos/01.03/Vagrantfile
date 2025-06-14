@@ -1,0 +1,7 @@
+Vagrant.configure("2") do |config|
+    config.vm.box = "debian/bullseye64"
+    config.vm.synced_folder ".", "/vagrant", disabled: true
+
+    config.vm.provision "shell", path: "scripts/install_utils.sh"
+    config.vm.provision "shell", path: "scripts/clone_page.sh"
+end
